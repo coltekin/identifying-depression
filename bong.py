@@ -235,6 +235,15 @@ class Bong:
         v = self.v.transform(docs)
         return self.model.predict(v)
 
+def predict(train, test, opt):
+    pred = _predict(train, test, opt)
+    outf = sys.stdout
+    if opt.output != '-':
+        outf = open(opt.output, 'wt')
+    for label in pred:
+        print(label)
+    outf.close()
+
 def _predict(train, test, opt):
 
     def str_to_param(pstr):

@@ -58,6 +58,6 @@ def cmdline():
             devdata =  TextcCSV(opt.test, label_filter=label_replace,
                             negative_class=opt.negative_class)
         else:
-            devdata =  None
+            devdata =  TextcCSV(opt.test, negative_class=opt.negative_class)
 
     return trndata, devdata, opt

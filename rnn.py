@@ -250,8 +250,8 @@ class TextRNN:
         debug("{}".format(Counter(labels)))
         if self.class_weight == 'balanced':
             from sklearn.utils import class_weight
-            weights = class_weight.compute_class_weight(
-                            'balanced', np.unique(labels), labels)
+            weights = class_weight.compute_class_weight('balanced',
+                    classes=np.unique(labels), y=labels)
 #            c_count = Counter(labels)
 #            keys = c_count.keys()
 #            weights = np.log(np.array([c_count[k] for k in keys]).reshape(1,-1))
